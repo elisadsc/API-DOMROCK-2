@@ -1,0 +1,4 @@
+com\alzheimerchatbot\config\AppConfig.class
+com\alzheimerchatbot\service\ChatService.class
+com\alzheimerchatbot\AlzheimerChatbotApplication.class
+com\alzheimerchatbot\service\ChatService$Article.class
