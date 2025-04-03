@@ -69,8 +69,8 @@
 |------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|--------|-----------|
 | 1    | Alta       | Como cuidador de uma pessoa com Alzheimer, quero perguntar sobre sintomas ou cuidados e receber uma resposta clara e baseada em estudos.                                                                                                                     | 3          | 1      | RF1        |
 | 2    | Alta       | Como cuidador, quero descrever uma situação como “a pessoa fica agitada à noite” e receber sugestões práticas com base em estudos, para lidar melhor com esses momentos.                                                                                                                           | 8          | 2      | RF2        |
-| 3    | Média      | Como cuidador, quero entender palavras difíceis como “intervenção não farmacológica”, para compreender os estudos com mais facilidade.                                                                                                                                                               | 3          | 2      | RF3        |
-| 4    | Média      | Como cuidador, quero saber o que os estudos dizem que não funciona, para evitar estratégias ineficazes.                                                                                                                                                                                              | 5          | 3      | RF4        |
+| 3    | Média      | Como cuidador, quero saber o que os estudos dizem que não funciona, para evitar estratégias ineficazes.                                                                                                                                                                                              | 5          | 3      | RF3        |
+| 4    | Média      | Como cuidador, quero entender palavras difíceis como “intervenção não farmacológica”, para compreender os estudos com mais facilidade.                                                                                                                                                               | 3          | 2      | RF4        |
 | 5    | Média      | Como cuidador, quero receber ideias de atividades cognitivas que ajudam a manter a pessoa ativa mentalmente, conforme citado nos estudos.                                                                                                                                                           | 5          | 3      | RF5        |
 
 <br>
@@ -106,7 +106,7 @@
 5. Alinhamento com a Sprint: 
    - A tarefa deve estar dentro do escopo da sprint e estar de acordo com as prioridades estabelecidas (urgente, alta, normal, baixa). 
 6. Estimativa de Tempo: 
-   - A tarefa deve ter uma estimativa de tempo de desenvolvimento e testes definida pela equipe. 
+   - A tarefa deve ter uma estimativa de tempo de desenvolvimento e testes definida. 
 </details>
 
 <br>
