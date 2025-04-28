@@ -5,7 +5,6 @@
 <p align="center">
   <a href ="#projeto"> Projeto </a>  •
   <a href ="#proposta"> Proposta </a>  • 
-  <a href ="#prototipo"> Protótipo </a>  • 
   <a href ="#backlogs"> Backlog do Produto </a> • 
   <a href ="#sprints">Sprints</a> 
   
@@ -17,7 +16,15 @@
 
 > **Status do Projeto: Em andamento** 
 
-- O projeto consiste no desenvolvimento de uma aplicação web baseada em Inteligência Artificial que funciona como um chatbot para auxiliar cuidadores de idosos com Alzheimer, integrando um Modelo de Linguagem de Grande Escala (LLM) com avaliação e aprimoramento por feedback humano. O principal objetivo é oferecer suporte prático na interpretação de informações e na resolução de dúvidas relacionadas ao cuidado desses pacientes, eliminando a necessidade de consultas complexas a artigos científicos ou sistemas técnicos, enquanto permite o retreinamento do LLM para melhorar suas respostas. O chatbot será capaz de responder perguntas específicas sobre sintomas, tratamentos, rotinas de cuidado e tendências de pesquisa, utilizando como base o dataset "Gaborandi/Alzheimer_pubmed_abstracts" do Hugging Face, fornecendo respostas em linguagem natural de forma clara, objetiva e adaptada às necessidades dos cuidadores. A interface web também coletará feedback dos usuários para refinar o desempenho do modelo, garantindo que as respostas sejam cada vez mais úteis e precisas.
+- O projeto consiste no desenvolvimento de uma aplicação web baseada em Inteligência Artificial que atua como um chatbot especializado no apoio a cuidadores de idosos com Alzheimer.
+
+Cuidadores de pacientes com Alzheimer enfrentam, diariamente, desafios emocionais e práticos: lidar com comportamentos imprevisíveis, manter rotinas adequadas, interpretar sintomas e acompanhar tratamentos em constante evolução. Além disso, muitos cuidadores não têm formação técnica específica e se sentem sobrecarregados pela dificuldade de encontrar informações claras, rápidas e confiáveis, especialmente em meio a fontes complexas como artigos científicos.
+
+Motivado por essa realidade, o projeto Alois Chat propõe integrar um Modelo de Linguagem de Grande Escala (LLM) a uma interface web intuitiva, com avaliação contínua por feedback humano. A solução busca oferecer respostas práticas, claras e adaptadas ao dia a dia dos cuidadores, eliminando a necessidade de pesquisas extensas e tornando o suporte técnico acessível a qualquer momento.
+
+O chatbot será capaz de responder perguntas específicas sobre sintomas, tratamentos, rotinas de cuidado e tendências de pesquisa, utilizando como base o dataset “Gaborandi/Alzheimer_pubmed_abstracts” do Hugging Face. A interface coleta avaliações dos usuários para refinar e melhorar constantemente o desempenho do modelo, garantindo que as respostas evoluam de acordo com as necessidades reais dos cuidadores.
+
+O Alois Chat é, portanto, mais do que uma ferramenta de consulta: é um companheiro de suporte para quem dedica sua vida ao cuidado de quem mais precisa.
 
 <br>
 
@@ -26,16 +33,17 @@
 ## :dart: Proposta
 
 **Requisitos Funcionais**
-- RF1: Consulta de Informações Específicas do Alzheimer a partir de Resumos:  
-    - Permitir que o cuidador consulte informações específicas sobre Alzheimer (ex.: sintomas, tratamentos, cuidados) extraídas exclusivamente dos resumos do dataset "Gaborandi/Alzheimer_pubmed_abstracts"
-- RF2: Análise de Sentimento Quantificada em Tratamentos nos Resumos:  
-    - Analisar o sentimento (positivo, negativo, neutro) em resumos do dataset que mencionam tratamentos específicos para Alzheimer e fornecer uma métrica quantitativa.
-- RF3: Identificação de Tendências Temporais em Temas de Pesquisa:  
-    - Identificar e relatar tendências temporais específicas nos temas de pesquisa sobre Alzheimer (ex.: sintomas, tratamentos, cuidados) com base nos resumos, usando metadados de data (se disponíveis) ou frequência de temas.
-- RF4: Recomendações Práticas Baseadas em Resumos para Situações Específicas:  
-    - Fornecer recomendações práticas e específicas para situações descritas pelo cuidador, baseadas em intervenções ou estratégias mencionadas nos resumos.
-- RF5: Listagem de Recursos Práticos Citados nos Resumos:   
-    - Listar recursos específicos (ex.: técnicas, ferramentas, programas) mencionados nos resumos para apoiar os cuidadores, com detalhes extraídos do texto.
+
+- RF1: Consulta de Informações Básicas do Alzheimer a partir de Resumos:  
+    - Permitir que o cuidador consulte informações básicas sobre Alzheimer (ex.: sintomas, tratamentos, cuidados) extraídas exclusivamente dos resumos do dataset "Gaborandi/Alzheimer_pubmed_abstracts".
+- RF2: Recomendações práticas para situações cotidianas com o idoso:
+    - Fornecer orientações práticas para auxiliar cuidadores em desafios diários no cuidado de idosos com Alzheimer.
+- RF3: Identificação de estratégias e tratamentos com baixa eficácia relatada nos estudos:  
+    - Mapear e informar estratégias ou tratamentos que apresentaram baixa eficácia nos resumos analisados, alertando os cuidadores.
+- RF4: Tradução de termos técnicos encontrados nos resumos para linguagem simples:   
+    - Traduzir expressões técnicas e científicas presentes nos resumos para uma linguagem simples e acessível aos cuidadores.
+- RF5: Listagem de ferramentas e abordagens mencionadas nos resumos que possam ajudar cuidadores:  
+    - Identificar e listar técnicas, ferramentas e abordagens que possam apoiar o trabalho dos cuidadores.
 
 
 <br>
@@ -45,16 +53,8 @@
 - RNF2 - Modelos LLM: llama3-8b-8192 - LLM de geração de texto, sentence-transformers/all-MiniLM-L6-v2 - LLM para geração de embeddings 
 - RNF3 - Framework Langchain 
 - RNF4 - Vídeo-tutorial 
-- RNF5 - Vue.JS para interface de usuário (chat bot)
+- RNF5 - React.js para interface de usuário (chat bot)
 
-<br>
-
-<span id="prototipo">
-  
-## :bulb: Protótipo
-
-**:link: Clique no link abaixo para visualizar o modelo do projeto.**  
-> [Protótipo do Projeto]()
 
 <br>
 
@@ -66,79 +66,31 @@
 
 <br> 
 
+
 | Rank | Prioridade | User Story                                                                                                                                                                                                                                                                                           | Estimativa (Planning Poker) | Sprint | Requisito do Parceiro |
 |------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|--------|-----------------------|
 | 1    | Alta       | Como cuidador de um idoso com Alzheimer, quero perguntar ao chatbot sobre sintomas específicos, como "Quais são os sinais iniciais?", e receber respostas claras e baseadas em estudos, para reconhecer a doença cedo e buscar ajuda médica rapidamente.                                           | 3                           | 1      | RF1                   |
-| 2    | Alta       | Como cuidador de um idoso com Alzheimer, quero que o chatbot analise resumos sobre um tratamento, como "A donepezila funciona?", e me diga percentuais de sentimentos positivos ou negativos, para decidir com meu médico se vale a pena testar o medicamento.                                      | 5                           | 1      | RF2                   |
-| 3    | Alta       | Como cuidador de um idoso com Alzheimer, quero perguntar "O que os estudos recentes dizem sobre cuidados?" e receber uma resposta com tendências específicas, como o aumento de terapias cognitivas, para aplicar as práticas mais atuais no cuidado diário.                                       | 5                           | 1      | RF3                   |
-| 4    | Média      | Como cuidador de um idoso com Alzheimer, quero descrever uma situação, como "Meu pai fica agitado à noite", e receber uma recomendação prática extraída dos resumos, como "usar música calma", para lidar com o problema de forma eficaz e imediata.                                              | 8                           | 2      | RF4                   |
-| 5    | Média      | Como cuidador de um idoso com Alzheimer, quero perguntar "Quais técnicas ajudam cuidadores?" e receber uma lista numerada de recursos citados nos resumos, como "mindfulness" ou "grupos de apoio", para encontrar suporte prático e reduzir meu estresse.                                        | 5                           | 2      | RF5                   |
-| 6    | Média      | Como cuidador de um idoso com Alzheimer, quero que o chatbot processe rapidamente minhas perguntas sobre tratamentos ou cuidados e forneça respostas em menos de 5 segundos, para que eu possa tomar decisões no momento em que preciso, sem atrasos.                                             | 3                           | 2      | RF1, RF4              |
-| 7    | Baixa      | Como cuidador de um idoso com Alzheimer, quero acessar o chatbot por uma interface simples no celular, digitando perguntas como "O que fazer quando ele esquece de comer?" e recebendo respostas diretas, para usar a ferramenta facilmente enquanto cuido do meu familiar.                     | 8                           | 3      | RF4                   |
-| 8    | Baixa      | Como cuidador de um idoso com Alzheimer, quero que o chatbot me avise se uma pergunta, como "Qual dieta melhora o Alzheimer?", não tem resposta nos resumos, dizendo "Nenhum dado encontrado", para que eu saiba quando buscar outras fontes sem perder tempo.                                 | 2                           | 3      | RF1, RF5              |
+| 2    | Alta       | Como cuidador de um idoso com Alzheimer, quero descrever uma situação, como "Como posso ajudar um idoso com Alzheimer a se alimentar melhor no dia a dia?", e receber uma recomendação prática, para lidar com o problema de forma eficaz e imediata.                         | 5                           | 2      | RF2                   |
+| 3    | Alta       | Como cuidador de um idoso com Alzheimer, quero saber quais tratamentos têm baixa eficácia, para evitar opções ineficazes ao cuidar do meu familiar.                                                                                                                                                  | 5                           | 3      | RF3                   |
+| 4    | Média      | Como cuidador de um idoso com Alzheimer, quero entender termos técnicos como "inibidor de acetilcolinesterase" em linguagem simples, para compreender melhor as orientações médicas e pesquisas que leio.                                                                                            | 8                           | 3      | RF4                   |
+| 5    | Média      | Como cuidador de um idoso com Alzheimer, quero visualizar uma lista de técnicas, ferramentas e abordagens, para apoiar meu trabalho diário de forma mais eficiente e prática.                                                                                    | 5                           | 2      | RF5                   |
 
----
 
+<br>
 
 ### Notas
 
 - **Requisitos Funcionais (RFs)**:
-  - **RF1**: Consulta de Informações Específicas do Alzheimer a partir de Resumos.
-  - **RF2**: Análise de Sentimento Quantificada em Tratamentos nos Resumos.
-  - **RF3**: Identificação de Tendências Temporais em Temas de Pesquisa.
-  - **RF4**: Recomendações Práticas Baseadas em Resumos para Situações Específicas.
-  - **RF5**: Listagem de Recursos Práticos Citados nos Resumos.
+  - **RF1**: Consulta de Informações Básicas do Alzheimer a partir de Resumos.  
+  - **RF2**: Recomendações práticas para situações cotidianas com o idoso.
+  - **RF3**: Identificação de estratégias e tratamentos com baixa eficácia relatada nos estudos.
+  - **RF4**: Tradução de termos técnicos encontrados nos resumos para linguagem simples.
+  - **RF5**: Listagem de ferramentas e abordagens mencionadas nos resumos que possam ajudar cuidadores.
 - **Estimativas**: Baseadas na complexidade de implementação com o dataset "Gaborandi/Alzheimer_pubmed_abstracts".
 - **Sprints**: Organizados para priorizar funcionalidades essenciais (Sprint 1), expansão prática (Sprint 2) e melhorias de usabilidade (Sprint 3).
 
 <br>
 
-
-
-<details>
-  <summary><strong>:page_facing_up: Estrutura do Código</strong></summary>
-<br>  
-<span id="gitflow">
-  
-## :chart_with_upwards_trend: Gitflow
- 
-
-  **Introdução ao Gitflow**
-    
-  O Gitflow é um modelo escalável de gerenciamento de branches para projetos Git. Ele é amplamente utilizado em desenvolvimento de software para gerenciar diferentes linhas de desenvolvimento, tornando os processos de release mais claros e gerenciáveis.
-  
-  **Branches Principais**
-  - **Master:** A branch master armazena o código oficial de release do projeto. Toda nova versão consolidada e testada é mergeada nessa branch e, posteriormente, taggeada com uma versão.
-  - **Develop:** A branch develop serve como uma branch de integração para features. Ela contém o estado mais recente das mudanças destinadas à próxima release.
-  
-  **Branches de Suporte**
-  - **Feature:** Branches feature são criadas a partir da branch develop. Cada branch feature é destinada ao desenvolvimento de uma funcionalidade específica ou correções e são mergeadas de volta à develop quando a funcionalidade está completa.
-  - **Release:** Branches release são criadas a partir da branch develop. Estas branches são preparações para uma nova release de produção. Permitem ajustes finais e correções de bugs que não são enviadas à branch develop durante esse período. Quando a release está pronta para ser lançada, ela é mergeada em master e develop.
-  - **Hotfix:** Branches hotfix são criadas a partir da branch master. São usadas para correções rápidas em releases de produção. Uma vez completadas, elas são mergeadas tanto em master quanto em develop para garantir que as correções sejam integradas em futuras releases.
-  
-  **Fluxo de Trabalho**
-  - **Desenvolvimento de Features:**
-  Inicia-se criando uma branch feature a partir de develop.
-  Após a conclusão da feature, realiza-se um pull request para a develop.
-  - **Preparação de Release:**
-  Cria-se uma branch release a partir de develop.
-  Realizam-se testes e ajustes necessários.
-  Conclui-se mergeando a release em master e também de volta à develop com incremento de versão.
-  - **Correções de Hotfix:**
-  Identificado um bug em produção, cria-se uma branch hotfix a partir de master.
-  Após a correção, o hotfix é mergeado em master e em develop.
-  
-  **Tags**
-  
-  Após uma release ser mergeada em master, uma tag de versão é criada para documentar o ponto de release no histórico do projeto.
-
- <img src="https://github.com/atomofatec/API-DOMROCK/blob/main/img/gitflow.png">
-
-<br>
-
-</details>
-
-<br>
 
 <details>
 
@@ -165,9 +117,6 @@
 </details>
 
 <br>
-   
-
-
 
 <br>
 
@@ -175,8 +124,10 @@
   
 ## :rocket: Entrega das Sprints
 
-Ferramenta usada para gestão: https://www.atlassian.com/br/software/jira
+Nesta seção estão documentadas todas as entregas realizadas ao longo das sprints do projeto. Cada sprint contém o detalhamento do MVP entregue, as user stories abordadas, seus respectivos critérios de aceitação e o link para o vídeo demonstrativo da funcionalidade implementada.
+O objetivo é evidenciar a evolução contínua do chatbot, focado no suporte prático e humanizado a cuidadores de idosos com Alzheimer, garantindo a rastreabilidade e a transparência do desenvolvimento.
 
+<br>
 <details>
   <summary><strong> Sprint 1 </strong></summary>
 
@@ -222,5 +173,50 @@ Ferramenta usada para gestão: https://www.atlassian.com/br/software/jira
   Review Chatbot: 
   https://github.com/user-attachments/assets/2e83f628-fa21-4108-9493-0c18388f0e2a
 
-  
+</details>
 <br>
+
+<br>
+
+<details> <summary><strong> Sprint 2 </strong></summary>
+
+  ## :dart: MVP
+  Nesta sprint (2), o foco foi aprimorar a experiência do usuário cuidador, adicionando uma interface de chatbot mais amigável, funcionalidade de avaliação humana das respostas (RF1) e novas capacidades de suporte prático com base em situações cotidianas (RF2) e  recursos úteis (RF5), melhorando ainda mais a aplicabilidade real do projeto.
+
+<br>
+
+ ## :dart: US + Critérios de Aceitação (Sprint 2)
+
+  **USER STORY 4**
+  - **Descrição:**  Como cuidador de um idoso com Alzheimer, quero perguntar sobre situações específicas do dia a dia, como "Como posso ajudar um idoso com Alzheimer a se alimentar melhor no dia a dia?", e receber recomendações práticas que eu possa aplicar rapidamente, sem precisar interpretar estudos científicos.
+  - **Critérios de Aceitação:**
+    - O chatbot deve identificar a situação descrita pelo cuidador e gerar pelo menos duas recomendações práticas extraídas de estratégias de resumos ou informações complementares.
+    - As respostas devem ser diretas, com no máximo 3-4 frases por recomendação.
+    - A linguagem deve ser simples, evitando termos técnicos e científicos, facilitando o entendimento pelo público cuidador.
+
+<br>
+
+  **USER STORY 5**
+  - **Descrição:**  Como cuidador de um idoso com Alzheimer, quero que o chatbot me indique ferramentas, programas ou abordagens que possam me ajudar no dia a dia, para otimizar o cuidado e reduzir o estresse.
+  - **Critérios de Aceitação:**
+    - O chatbot deve listar recursos (ex.: técnicas, aplicativos, atividades cognitivas) citados nos resumos do dataset ou nas recomendações práticas.
+    - Cada recurso listado deve vir acompanhado de uma breve explicação de como ele pode ajudar o cuidador ou o idoso.
+    - O sistema deve apresentar pelo menos 3 opções relevantes para cada consulta, sempre que possível.
+
+<br>
+
+  **USER STORY 6**
+  - **Descrição:**  Como cuidador de um idoso com Alzheimer, quero poder avaliar qual resposta do chatbot me ajudou mais, para que o sistema aprenda com o feedback e melhore ainda mais suas futuras respostas.
+  - **Critérios de Aceitação:**
+    - Após receber múltiplas respostas, o usuário deve poder selecionar a melhor resposta entre elas.
+    - Após a escolha, uma tela de avaliação deve ser exibida solicitando a nota em uma escala de 1 a 5 em critérios como clareza, coerência, utilidade e uma justificativa textual obrigatória.
+    - O feedback deve ser registrado no backend de forma associada à resposta avaliada, permitindo o uso posterior para melhoria de modelos.
+
+<br>
+:dart: Entrega
+Clique aqui e assista ao vídeo da entrega no YouTube
+
+[Clique aqui e assista ao vídeo da entrega no YouTube](https://youtu.be/mRtRL11poxQ?si=MsxFYiafiERNwKNg)
+
+<br>
+</details>
