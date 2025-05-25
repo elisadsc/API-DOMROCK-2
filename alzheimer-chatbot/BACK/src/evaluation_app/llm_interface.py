@@ -1,80 +1,74 @@
 import os
 import requests
 import uuid
-import json
+from dotenv import load_dotenv
 
-def get_llm_responses(prompt: str):
+load_dotenv()
+
+# Pegando as chaves específicas de cada modelo
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+GEMMA_API_KEY = os.getenv("GEMMA_API_KEY")
+
+# Prefixo padrão para os prompts
+PREFIXO_PT = "Responda em português, de forma clara e objetiva: "
+
+# Modelos configurados
+LLMS = [
+    {
+        "id": "deepseek",
+        "name": "DeepSeek V3",
+        "model": "deepseek/deepseek-chat-v3-0324:free",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "api_key": DEEPSEEK_API_KEY
+    },
+    {
+        "id": "gemma",
+        "name": "Gemma 3 12B",
+        "model": "google/gemma-3-12b-it:free",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "api_key": GEMMA_API_KEY
+    }
+]
+
+def get_llm_responses(user_prompt: str):
     results = []
 
-    # ---------- 1. DeepSeek via OpenRouter ----------
-    try:
-        print("🔵 Enviando requisição para DeepSeek R1 (OpenRouter)...")
-        deepseek_response = requests.post(
-            url="https://openrouter.ai/api/v1/chat/completions",
-            headers={
-                "Authorization": f"Bearer {os.getenv('OPENROUTER_API_KEY')}",
-                "Content-Type": "application/json",
-            },
-            data=json.dumps({
-                "model": "deepseek/deepseek-r1:free",
-                "messages": [{"role": "user", "content": prompt}]
-            })
-        )
+    for llm in LLMS:
+        try:
+            response_id = str(uuid.uuid4())
+            full_prompt = PREFIXO_PT + user_prompt
 
-        if deepseek_response.status_code == 200:
-            deepseek_data = deepseek_response.json()
-            deepseek_text = deepseek_data['choices'][0]['message']['content']
-            results.append({
-                "id": str(uuid.uuid4()),
-                "llm_name": "DeepSeek R1 (OpenRouter)",
-                "text": deepseek_text
-            })
-        else:
-            results.append({
-                "id": str(uuid.uuid4()),
-                "llm_name": "DeepSeek R1 (OpenRouter)",
-                "text": f"[Erro DeepSeek] {deepseek_response.status_code} {deepseek_response.text}"
-            })
-    except Exception as e:
-        results.append({
-            "id": str(uuid.uuid4()),
-            "llm_name": "DeepSeek R1 (OpenRouter)",
-            "text": f"[Erro DeepSeek] {str(e)}"
-        })
-
-    # ---------- 2. Gemini 1.5 Pro ----------
-    try:
-        print("🟣 Enviando requisição para Gemini 1.5 Pro...")
-        gemini_response = requests.post(
-            url=f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key={os.getenv('GOOGLE_API_KEY')}",
-            headers={
+            headers = {
+                "Authorization": f"Bearer {llm['api_key']}",
+                "HTTP-Referer": "http://localhost:8000",
+                "X-Title": "Alois Chat",
                 "Content-Type": "application/json"
-            },
-            data=json.dumps({
-                "contents": [{"parts": [{"text": prompt}]}]
-            })
-        )
+            }
 
-        if gemini_response.status_code == 200:
-            gemini_data = gemini_response.json()
-            gemini_text = gemini_data['candidates'][0]['content']['parts'][0]['text']
-            results.append({
-                "id": str(uuid.uuid4()),
-                "llm_name": "Gemini 1.5 Pro",
-                "text": gemini_text
-            })
-        else:
-            results.append({
-                "id": str(uuid.uuid4()),
-                "llm_name": "Gemini 1.5 Pro",
-                "text": f"[Erro Gemini] {gemini_response.status_code} {gemini_response.text}"
-            })
-    except Exception as e:
+            body = {
+                "model": llm["model"],
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": full_prompt
+                    }
+                ]
+            }
+
+            response = requests.post(llm["url"], json=body, headers=headers, timeout=20)
+
+            if response.status_code == 200:
+                content = response.json()["choices"][0]["message"]["content"]
+            else:
+                content = f"[Erro {llm['name']}] {response.status_code} {response.text}"
+
+        except Exception as e:
+            content = f"[Erro {llm['name']}] {str(e)}"
+
         results.append({
-            "id": str(uuid.uuid4()),
-            "llm_name": "Gemini 1.5 Pro",
-            "text": f"[Erro Gemini] {str(e)}"
+            "id": response_id,
+            "llm_name": llm["name"],
+            "text": content
         })
 
-    print("✅ Resultados:", results)
     return results
