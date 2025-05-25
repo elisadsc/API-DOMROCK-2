@@ -6,8 +6,8 @@
   <a href ="#projeto"> Projeto </a>  •
   <a href ="#proposta"> Proposta </a>  • 
   <a href ="#backlogs"> Backlog do Produto </a> • 
-  <a href ="#sprints">Sprints</a> 
-  
+  <a href ="#sprints">Sprints</a> • 
+  <a href ="#evolucao">Evolução da Interfaces</a>
 <br>
 
 <span id="projeto">
@@ -220,3 +220,77 @@ Clique aqui e assista ao vídeo da entrega no YouTube
 
 <br>
 </details>
+<br>
+
+<br>
+
+<details> <summary><strong> Sprint 3 </strong></summary>
+
+  ## :dart: MVP
+  Nesta Sprint (3), o foco esteve na melhoria da experiência do usuário cuidador, por meio da implementação de uma interface de chatbot mais intuitiva e profissional. Foram entregues as funcionalidades de avaliação humana das respostas geradas pelo modelo, além da implementação da identificação de tratamentos com baixa eficácia para Alzheimer (RF3) e da tradução de termos técnicos para linguagem simples (RF4). As entregas seguiram o backlog do produto e atenderam aos critérios de aceite definidos, garantindo usabilidade e valor agregado à solução.
+<br>
+
+ ## :dart: US + Critérios de Aceitação (Sprint 3)
+
+ **USER STORY 7**  
+- **Descrição:** Como cuidador de um idoso com Alzheimer, quero saber quais tratamentos têm baixa eficácia, para evitar opções ineficazes ao cuidar do meu familiar.  
+- **Critérios de Aceitação:**
+  - O chatbot deve ser capaz de identificar o tema relacionado a tratamentos de baixa eficácia quando solicitado pelo usuário.
+  - As respostas devem ser baseadas em informações confiáveis, com explicações claras sobre por que determinado tratamento é considerado de baixa eficácia.
+  - As respostas devem conter no máximo 4 parágrafos e evitar linguagem técnica sempre que possível, priorizando a compreensão do cuidador.
+
+
+<br>
+
+ **USER STORY 8**  
+- **Descrição:** Como cuidador de um idoso com Alzheimer, quero entender termos técnicos como "inibidor de acetilcolinesterase" em linguagem simples, para compreender melhor as orientações médicas.  
+- **Critérios de Aceitação:**
+  - O chatbot deve reconhecer automaticamente a presença de termos técnicos médicos na pergunta do usuário.
+  - A explicação deve ser feita em linguagem leiga, utilizando analogias ou comparações simples sempre que possível.
+  - A resposta deve ser objetiva e conter, no máximo, 4 parágrafos curtos.
+
+<br>
+ 
+  **USER STORY 9**  
+  - **Descrição:** Como cuidador de um idoso com Alzheimer, quero acessar o histórico das minhas perguntas e respostas anteriores no chatbot, para poder revisar informações importantes sempre que precisar.  
+  - **Critérios de Aceitação:**
+    - O sistema deve armazenar cada interação realizada pelo usuário, incluindo perguntas, respostas e data/hora.
+    - Deve ser possível editar o nome dos chats para facilitar minha busca.
+    - Deve ser possível apagar o chat e limpar o histórico da conversa selecionada.
+
+
+<br>
+:dart: Entrega
+Clique aqui e assista ao vídeo da entrega no YouTube
+
+[Clique aqui e assista ao vídeo da entrega no YouTube](https://youtu.be/r9r6y0vos2k)
+
+<br>
+</details>
+<br>
+
+<br>
+<span id="evolucao">
+  
+## :clipboard: Evolução da Interface do Projeto
+
+Sprint 1:  
+> Estruturação inicial do backend, definição da arquitetura do projeto e criação do fluxo básico de envio de perguntas e respostas.
+
+![Chatbot funcionando](https://github.com/elisadsc/API-DOMROCK-2/blob/main/IMG/1gif.gif?raw=true)
+
+<br>
+
+Sprint 2: 
+> Implementação da interface do chatbot, conexão com modelos de linguagem via API e exibição de múltiplas respostas para escolha do cuidador.
+
+![Chatbot funcionando](https://github.com/elisadsc/API-DOMROCK-2/blob/main/IMG/2gif.gif?raw=true)
+
+<br>
+
+Sprint 3:  
+> Adição da interface de avaliação de respostas com critérios qualitativos, integração completa com banco de dados e foco na experiência do usuário cuidador.
+
+![Chatbot funcionando](https://github.com/elisadsc/API-DOMROCK-2/blob/main/IMG/3gif.gif?raw=true)
+
+<br>
