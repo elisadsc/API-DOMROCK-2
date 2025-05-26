@@ -7,7 +7,7 @@
   <a href ="#proposta"> Proposta </a>  • 
   <a href ="#backlogs"> Backlog do Produto </a> • 
   <a href ="#sprints">Sprints</a> • 
-  <a href ="#evolucao">Evolução da Interfaces</a>
+  <a href ="#evolucao">Evolução da Interface</a>
 <br>
 
 <span id="projeto">
@@ -49,11 +49,11 @@ O Alois Chat é, portanto, mais do que uma ferramenta de consulta: é um companh
 <br>
  
 **Requisitos Não Funcionais**
-- RNF1 - BD Vetorial ChromaDB 
-- RNF2 - Modelos LLM: llama3-8b-8192 - LLM de geração de texto, sentence-transformers/all-MiniLM-L6-v2 - LLM para geração de embeddings 
-- RNF3 - Framework Langchain 
-- RNF4 - Vídeo-tutorial 
-- RNF5 - React.js para interface de usuário (chat bot)
+- RNF1 - Banco de Dados relacional SQLite para armazenamento de prompts, respostas, avaliações.
+- RNF2 - Integração com modelos LLM via API da plataforma OpenRouter, utilizando DeepSeek V3 e Gemma 3 12B para geração de respostas em linguagem natural.
+- RNF3 - API desenvolvida com FastAPI, responsável pela comunicação entre backend, banco de dados e os modelos LLM.
+- RNF4 - Interface de chatbot construída em React.js, com funcionalidades de avaliação de respostas, histórico de conversas e usabilidade aprimorada para cuidadores.
+- RNF5 - Apresentação da evolução do projeto nas sprints e vídeo review no Youtube. 
 
 
 <br>
